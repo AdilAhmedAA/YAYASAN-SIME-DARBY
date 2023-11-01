@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+@import url('https://fonts.cdnfonts.com/css/dinpro-bold');
+@import url('https://fonts.cdnfonts.com/css/esquadro');
+
+
+* {
+    box-sizing: border-box;
+}
+body , a ,p , h1, h2, h3, h4, h5, h6, ul, li, span {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+}
+ a , h1, h2, h3, h4, h5, h6 {
+    font-family: 'Signika', sans-serif;
+    font-size: 17.4px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.01;
+    letter-spacing: 0.17px;
+    text-decoration: none;
+}
+.container {
+    max-width: 1420px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.head h2 {
+    font-size: 60px;
+    text-transform: uppercase;
+    line-height: 66px;
+    letter-spacing: -1.5px;
+    color: #a62f4e;
+    margin-bottom: 20px;
+
+    &.main-h2 {
+        font-size: 82px;
+        line-height: 88px;
+    }
+}
+
+@font-face {
+    font-family: eEsquadro;
+    src: url(../assets/fonts/eEsquadro.ttf);
+}
+@font-face {
+    font-family: Signika;
+    src: url(../assets/fonts/Signika-VariableFont_wght.ttf);
+}
