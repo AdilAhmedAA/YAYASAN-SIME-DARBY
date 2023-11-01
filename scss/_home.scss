@@ -4,6 +4,8 @@ header {
     background-color: #fff;
 
 
+
+
     .inner {
         display: flex;
         align-items: center;
@@ -121,12 +123,14 @@ header {
                 position: absolute;
                 top: 100px;
                 transform: translateY(-150vh);
-                transition: all 0.3s ease-in-out;
+                transition: translate 0.3s ease-in-out;
                 z-index: -1;
+                display: none;
 
                 &.active {
                     transform: translateY(0);
                     opacity: 1;
+                    display: block;
     
     
                     ul {
@@ -215,6 +219,22 @@ header {
         .hero-img {
             width: 100%;
             object-fit: contain;
+
+            &.mob {
+                display: none;
+
+
+                @include media-breakpoint-down(sm) {
+                    display: block;
+                }
+            }
+
+            &.desk {
+
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -223,6 +243,10 @@ header {
     padding: 100px 0;
     background-image: linear-gradient(to bottom, #fff, #f9f7f6 9%, #f0ece7 31%, #eae6df 57%, #e9e4dd 100%);
     position: relative;
+
+    @include media-breakpoint-down(lg)  {
+        padding: 50px 0;
+    }
 
     &::after {
         content: "";
@@ -247,8 +271,8 @@ header {
 
         &::after {
             content: '';
-            max-width: 150px;
-            max-height: 200px;
+            max-width: 100px;
+            max-height: 130px;
             height: 100%;
             width: 100%;
             background: url(../assets/images/RationaleIcon@1x.png);
@@ -257,7 +281,11 @@ header {
             background-repeat: no-repeat;
             position: absolute;
             right: 0;
-            top: -80px;
+            top: -40px;
+
+            @include media-breakpoint-down(sm) {
+                top: -105px;
+            }
         }
 
         &.reversed {
@@ -265,6 +293,10 @@ header {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
+
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+            }
 
             &::after {
                 content: none;
@@ -284,6 +316,10 @@ header {
                     max-width: 570px;
                     display: flex;
                     align-items: flex-start;
+
+                    @include media-breakpoint-down(md) {
+                        margin-top: 30px;
+                    }
 
                     .img {
                         margin-top: -20px;
@@ -336,12 +372,21 @@ header {
         margin: 0 auto;
         margin-top: 50px;
 
+        @include media-breakpoint-down(md) {
+            margin-top: 30px;
+        }
+
 
         .mission-wrapper {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 60px;
+
+            @include media-breakpoint-down(md) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
             .item {
                 max-width: 120px;
@@ -386,6 +431,10 @@ header {
     background-repeat: no-repeat;
     position: relative;
 
+    @include media-breakpoint-down(lg) {
+        padding: 50px 0;
+    }
+
     &::after {
         content: "";
         background: url(../assets/images/ChairmanEnder@1x.png);
@@ -402,6 +451,9 @@ header {
         @include media-breakpoint-down(xxl) {
             background-size: contain;
         }
+        @include media-breakpoint-down(lg) {
+            bottom: -5px;
+        }
     }
 
 
@@ -410,6 +462,12 @@ header {
             color: #fff;
             max-width: 470px;
             display: inline-flex;
+
+            @include media-breakpoint-down(lg) {
+                max-width: 100%;
+                text-align: center;
+                margin-bottom: 30px;
+            }
         }
     }
 
@@ -419,10 +477,24 @@ header {
         display: flex;
         align-items: flex-end;
 
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+            align-items: center;
+        }
+
         .img {
             max-width: 570px;
             position: relative;
             display: flex;
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 0;
+                margin-top: 150px;
+            }
+            @include media-breakpoint-down(sm) {
+                margin-bottom: 0;
+                margin-top: 160px;
+            }
         
 
             img {
@@ -444,6 +516,16 @@ header {
             margin-left: 50px;
             margin-bottom: 50px;
 
+            @include media-breakpoint-down(xl) {
+                margin-left: 0;
+                margin-top: 170px;
+            }
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 0;
+                margin-top: 30px;
+            }
+
             h4 {
                 font-family: 'Esquadro', sans-serif;
                 color: #fff;
@@ -461,6 +543,11 @@ header {
                 border-right: none;
                 display: flex;
                 align-items: center;
+
+                @include media-breakpoint-down(md) {
+                    font-size: 22px;
+                    line-height: 16px;
+                }
             }
 
             .archievements {
@@ -472,20 +559,44 @@ header {
                     max-width: 230px;
                     border-left: 1px solid #fff;
 
+                    @include media-breakpoint-down(sm) {
+                        max-width: 100%;
+                        padding: 5px;
+                    }
+
                     span {
                         display: flex;
                         align-items: center;
+
+                        @include media-breakpoint-down(sm) {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
 
                         img {
                             max-width: 70px;
                             width: 100%;
                             margin-right: 15px;
+
+                            @include media-breakpoint-down(xl) {
+                                margin-right: 0;
+                            }
+                            @include media-breakpoint-down(sm) {
+                                max-width: 45px;
+                            }
                         }
 
                         span {
                             font-size: 40px;
                             font-weight: normal;
                             color: #fff;
+
+                            @include media-breakpoint-down(xl) {
+                                font-size: 34px;
+                            }
+                            @include media-breakpoint-down(xl) {
+                                font-size: 24px;
+                            }
                         }
                     }
 
@@ -499,6 +610,10 @@ header {
                         font-style: oblique;
                         line-height: 1.2;
                         margin-top: 20px;
+
+                        @include media-breakpoint-down(md) {
+                            font-size: 13px;
+                        }
                     }
                 }
             }
@@ -518,6 +633,10 @@ header {
                 font-family: 'Helvetica Neue', sans-serif;
                 font-size: 20px;
                 font-weight: Normal;
+
+                @include media-breakpoint-down(xl) {
+                    font-size: 16px;
+                }
             }
 
         }
@@ -528,13 +647,20 @@ header {
             width: 100%;
             color: #fff;
             background: url(../assets/images/ChairmanBubble@1x.png);
-            background-size: contain;
+            background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
             position: absolute;
             top: -50px;
-            left: 50%;
+            left: 60%;
             transform: translateX(-50%);
+
+            @include media-breakpoint-down(md) {
+                left: 0;
+                transform: none;
+            }
+
+
         }
     }
 
@@ -542,6 +668,10 @@ header {
             padding-top: 50px;
 
             .chairman-details {
+
+                @include media-breakpoint-down(lg) {
+                    flex-direction: column-reverse;
+                }
 
             .img {
                 max-width: 700px;
@@ -562,17 +692,26 @@ header {
                 width: 100%;
                 color: #fff;
                 background: url(../assets/images/CEOBubble@1x.png);
-                background-size: contain;
+                background-size: 100% 100%;
                 background-position: center;
                 background-repeat: no-repeat;
                 position: absolute;
                 top: -50px;
                 left: 40%;
                 transform: translateX(-50%);
+
+                @include media-breakpoint-down(md) {
+                    transform: none;
+                    left: 0;
+                }
+                @include media-breakpoint-down(sm) {
+                    padding: 40px 43px 75px 26px;
+                }
             }
 
             .head {
                 display: flex;
+                justify-content: flex-end;
 
                 h2 {
                     margin-left: auto;
@@ -582,6 +721,13 @@ header {
                 margin-left: 0;
                 margin-top: 150px;
                 width: auto;
+
+                @include media-breakpoint-down(xl) {
+                    margin-bottom: 0;
+                }
+                @include media-breakpoint-down(lg) {
+                    margin-top: 30px;
+                }
 
                 .archievements {
                     padding: 20px 0 0 0;
@@ -609,6 +755,10 @@ header {
 
                             p {
                                 margin-top: 10px;
+
+                                @include media-breakpoint-down(sm) {
+                                    margin: 0;
+                                }
                             }
 
                             &.noborder {
@@ -628,6 +778,10 @@ header {
     background-image: linear-gradient(to bottom, #fff 0%, #f9f7f6 9%, #f0ece7 31%, #eae6df 57%, #e9e4dd 100%);
     position: relative;
 
+    @include media-breakpoint-down(lg) {
+        padding: 50px 0;
+    }
+
     &::after {
         content: "";
         background: url(../assets/images/SpecialFeaturesEnder@1x.png);
@@ -645,6 +799,9 @@ header {
         @include media-breakpoint-down(xxl) {
             background-size: contain;
         }
+        @include media-breakpoint-down(lg) {
+            bottom: -5px;
+        }
     }
 
     .head {
@@ -658,9 +815,28 @@ header {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
+
+        @include media-breakpoint-down(lg) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 15px;
+        }
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: 1fr;
+            row-gap: 30px;
+        }
+
         .item {
             max-width: 385px;
             width: 100%;
+
+            @include media-breakpoint-down(xl) {
+                margin: 0 10px;
+            }
+            @include media-breakpoint-down(sm) {
+                max-width: 100%;
+                margin: 0;
+            }
 
             .details {
                 padding: 10px 30px;
@@ -701,6 +877,10 @@ header {
             .img {
                 max-width: 370px;
 
+                @include media-breakpoint-down(sm) {
+                    margin: 0 auto;
+                }
+
                 img {
                     width: 100%;
                 }
@@ -737,8 +917,32 @@ header {
         @include media-breakpoint-down(xxl) {
             background-size: contain;
         }
+        @include media-breakpoint-down(lg) {
+            bottom: -5px;
+        }
     }
     .slider-wrapper {
+        .slick-track , .slick-list {
+            display: flex;
+        }
+        .slick-slide {
+            height: 100%;
+        }
+        .slick-slide:has(.pink) {
+            background-color: #e63b80;
+        }
+        .slick-slide:has(.green) {
+            background-color: #57a746;
+        }
+        .slick-slide:has(.orange) {
+            background-color: #d3743b;
+        }
+        .slick-slide:has(.blue) {
+            background-color: #0c8caf;
+        }
+        .slick-slide:has(.voilet) {
+            background-color: #903779;
+        }
 
         .slick-arrow {
             width: 50px;
@@ -755,6 +959,10 @@ header {
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
+
+                @include media-breakpoint-down(xl) {
+                    right: 15px;
+                }
             }
             &.slick-prev {
                 left:10%;
@@ -762,6 +970,9 @@ header {
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
+                @include media-breakpoint-down(xl) {
+                    left: 15px;
+                }
             }
         }
 
@@ -770,30 +981,30 @@ header {
             max-height: 100vh;
             min-height: 100vh;
 
-            &.pink {
-                background-color: #e63b80;
-            }
-            &.green {
-                background-color: #57a746;
-            }
-            &.orange {
-                background-color: #d3743b;
-            }
-            &.blue {
-                background-color: #0c8caf;
-            }
-            &.voilet {
-                background-color: #903779;
+            @include media-breakpoint-down(xl) {
+                padding: 50px 0;   
+                max-height: 100%;
+                min-height: 100%;
             }
 
             .container {
                 display: flex;
                 align-items: center;
+                height: 100%;
+
+                @include media-breakpoint-down(lg) {
+                    flex-direction: column;
+                }
             }
 
             .head {
                 max-width: 60%;
                 padding-right: 50px;
+
+                @include media-breakpoint-down(lg) {
+                    padding: 0;
+                    margin-bottom: 30px;
+                }
 
                 h2 {
                     color:#fff
@@ -811,6 +1022,10 @@ header {
                 max-width: 400px;
                 margin-top: 100px;
 
+                @include media-breakpoint-down(xl) {
+                    margin-top: 0;
+                }
+
                 p {
                     color: #fff;
                 }
@@ -825,6 +1040,19 @@ header {
                     font-style: normal;
                     line-height: 1.2;
                     letter-spacing: -1.45px;
+
+                    @include media-breakpoint-down(lg) {
+                        font-size: 40px;
+                        line-height: 46px;
+                    }
+                    @include media-breakpoint-down(md) {
+                        font-size: 36px;
+                        line-height: 42px;
+                    }
+                    @include media-breakpoint-down(sm) {
+                        font-size: 32px;
+                        line-height: 38px;
+                    }
                 }
             }
         }
@@ -845,6 +1073,10 @@ header {
         .img {
             max-width: 670px;
 
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+
             img {
                 width: 100%;
             }
@@ -857,6 +1089,14 @@ header {
             justify-content: center;
             flex-direction: column;
 
+            @include media-breakpoint-down(md) {
+                max-width: 100%;
+            }
+            @include media-breakpoint-down(sm) {
+                margin-left: 0;
+            }
+
+
             .head {
                 display: flex;
                 align-items: center;
@@ -865,16 +1105,43 @@ header {
                 h2 {
                     color: #fff;
                     margin-bottom: 50px;
+
+                    @include media-breakpoint-down(xl) {
+                        margin: 0 0 30px 0;
+                    }
+                    @include media-breakpoint-down(md) {
+                        margin: 0;
+                    }
+                }
+
+                .img {
+                    display: none;
+                    max-width: 400px;
+                    margin-left: auto;
+
+                    @include media-breakpoint-down(md) {
+                        display: flex;
+                    }
                 }
 
                 div {
                     flex-direction: column;
                     display: flex;
+                    
+                    @include media-breakpoint-down(md) {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        column-gap: 15px;
+                    }
                 }
 
                 a {
                     margin: 30px 0;
                     display: inline-flex;
+
+                    @include media-breakpoint-down(xl) {
+                        margin: 20px 0;
+                    }
 
                     img {
                         margin-right: 20px;
@@ -900,6 +1167,10 @@ footer {
                 display: inline-block;
                 margin-right: 33px;
 
+                @include media-breakpoint-down(sm) {
+                    margin-right: 10px;
+                }
+
                 &:last-child {
                     margin-right: 0;
                 }
@@ -913,8 +1184,17 @@ footer {
         .copyrights {
             display: inline-flex;
 
+            @include media-breakpoint-down(sm) {
+                max-width: 130px;
+            }
+
             p {
                 font-size: 13px;
+
+                @include media-breakpoint-down(sm) {
+                    font-size: 12px;
+                    line-height: 18px;
+                }
             }
         }
     }
@@ -932,5 +1212,12 @@ footer {
     img  {
         max-width: 50px;
         width: 100%;
+    }
+
+    @include media-breakpoint-down(xl) {
+        font-size: 16px;
+    }
+    @include media-breakpoint-down(md) {
+        font-size: 14px;
     }
 }
