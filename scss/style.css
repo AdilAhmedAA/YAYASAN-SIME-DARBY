@@ -1274,6 +1274,12 @@ footer .inner .copyrights p {
 .download img {
   max-width: 50px;
   width: 100%;
+  margin-right: 15px;
+}
+@media (max-width: 767.98px) {
+  .download img {
+    margin-right: 10px;
+  }
 }
 @media (max-width: 1199.98px) {
   .download {
