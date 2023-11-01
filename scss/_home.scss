@@ -948,28 +948,38 @@ header {
             width: 50px;
             height: 50px;
             z-index: 99;
+            
+            @include media-breakpoint-down(sm) {
+                top: 30%;
+            }
 
             &::before {
                 content: none;
             }
 
             &.slick-next {
-                right:17%;
+                right:5%;
                 background: url(../assets/images/RightArrow@1x.png);
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
 
+                @include media-breakpoint-down(xxl) {
+                    right: 30px;
+                }
                 @include media-breakpoint-down(xl) {
                     right: 15px;
                 }
             }
             &.slick-prev {
-                left:10%;
+                left:5%;
                 background: url(../assets/images/LeftArrow@1x.png);
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
+                @include media-breakpoint-down(xxl) {
+                    left: 30px;
+                }
                 @include media-breakpoint-down(xl) {
                     left: 15px;
                 }
@@ -977,14 +987,19 @@ header {
         }
 
         .slide-item {
-            padding: 100px 0;
-            max-height: 100vh;
+            padding: 50px 0;
+            max-height: 100%;
             min-height: 100vh;
 
             @include media-breakpoint-down(xl) {
-                padding: 50px 0;   
                 max-height: 100%;
                 min-height: 100%;
+                padding-right: 50px;
+            }
+            @include media-breakpoint-down(lg) {
+                max-height: 100%;
+                min-height: 100%;
+                padding-right: 0;
             }
 
             .container {
